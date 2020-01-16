@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -7,32 +7,25 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./create-form.component.css']
 })
 export class CreateFormComponent implements OnInit {
-  @Output("onClick") onSave=new EventEmitter<any>();
   userForm: FormGroup;
-  types: Array<string> = [
-    'input',
-    'textarea',
-    'checkbox'
+  designations: Array<string> = [
+    'Guest',
+    'Admin',
+    'Owner',
+    'Operator'
   ];
   constructor(private formBuilder: FormBuilder) {
     this.userForm = this.formBuilder.group({
-      'label': [''],
-      'key': [''],
-      'type': ['']
+      'firstName': [''],
+      'lastName': [''],
+      'age': [''],
+      'designation': ['']
       
     });
    }
 
   ngOnInit() {
     console.log(this.userForm)
-  }
-
-  onClick()
-  {
-    //console.log(this.userForm);
-
-    this.onSave.emit(this.userForm.getRawValue());
-
   }
 
 }
