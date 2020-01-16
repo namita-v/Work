@@ -1,20 +1,19 @@
 <form [formGroup]="userForm">
     <div class="form-group">
-      <label for="firstName">First Name</label>
-      <input class="form-control" name="firstName" id="firstName" type="text" formControlName="firstName">
+      <label for="label">Label</label>
+      <input class="form-control" name="label" id="label" type="text" formControlName="label">
     </div>
     <div class="form-group">
-      <label for="lastName">Last Name</label>
-      <input class="form-control" name="lastName" id="lastName" type="text" formControlName="lastName">
+      <label for="key">Key</label>
+      <input class="form-control" name="key" id="key" type="text" formControlName="key">
     </div>
     <div class="form-group">
-        <label for="age">Age</label>
-        <input class="form-control" name="age" id="age" type="number" formControlName="age">
-      </div>
-    <div class="form-group">
-      <label for="role">Designation</label>
-      <select class="form-control" name="designation" id="designation" formControlName="designation">
-        <option *ngFor="let designation of designations" [ngValue]="designation">{{designation}}</option>
+      <label for="type">Type</label>
+      <select class="form-control" name="type" id="type" formControlName="type">
+        <option *ngFor="let type of types" [ngValue]="type">{{type}}</option>
       </select>
     </div>
+    
   </form>
+  <button mat-raised-button color="primary" id="save" type="button" 
+  (click)="onClick()">

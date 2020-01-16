@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {CreateFormComponent} from './create-form/create-form.component';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,14 @@ import {CreateFormComponent} from './create-form/create-form.component';
 })
 export class AppComponent {
   title = 'FormlyForms';
+  public userForm : any;
+
+
+onClick(event){
+
+  this.userForm=event;
+
+
+}
+
 }

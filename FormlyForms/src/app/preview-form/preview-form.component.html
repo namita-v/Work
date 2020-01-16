@@ -1,1 +1,4 @@
-<p>preview-form works!</p>
+<form [formGroup]="form" (ngSubmit)="submit(model)">
+    <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid" >Submit</button>
+  </form>
