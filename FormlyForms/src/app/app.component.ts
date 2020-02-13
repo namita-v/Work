@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FormlyForms';
-  public userForm : any;
+  public userForm : object;
 
 
 onClick(event){

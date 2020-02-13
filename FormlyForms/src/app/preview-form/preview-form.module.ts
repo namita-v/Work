@@ -5,11 +5,12 @@ import {FormlyModule} from '@ngx-formly/core';
 import {ReactiveFormsModule}  from '@angular/forms';
 import {FormlyMaterialModule} from '@ngx-formly/material';
 
+
 @NgModule({
   declarations: [PreviewFormComponent],
   imports: [
     CommonModule,
-    FormlyModule.forRoot(),
+    FormlyModule.forRoot({}),
     ReactiveFormsModule,
     FormlyMaterialModule
   ],

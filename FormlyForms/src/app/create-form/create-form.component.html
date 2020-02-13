@@ -1,19 +1,39 @@
 <form [formGroup]="userForm">
-    <div class="form-group">
-      <label for="label">Label</label>
-      <input class="form-control" name="label" id="label" type="text" formControlName="label">
+  <div  cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+  <div  formArrayName="fields"
+  *ngFor="let field of userForm.get('fields').controls; let i = index;" cdkDrag >
+  <span cdkDragHandle>
+    <mat-icon>
+      drag_indicator
+    </mat-icon>
+  </span>
+        <div class="form-group" [formGroupName]="i" >
+          <div>
+      
+      <mat-form-field>
+      <input class="form-control" placeholder="Label" matInput name="label" id="label" formControlName="label">
+    </mat-form-field>
     </div>
     <div class="form-group">
-      <label for="key">Key</label>
-      <input class="form-control" name="key" id="key" type="text" formControlName="key">
+
+      <mat-form-field>
+      <input class="form-control" placeholder="Key" matInput name="key" id="key"  formControlName="key">
+    </mat-form-field>
     </div>
     <div class="form-group">
-      <label for="type">Type</label>
-      <select class="form-control" name="type" id="type" formControlName="type">
-        <option *ngFor="let type of types" [ngValue]="type">{{type}}</option>
-      </select>
+      
+      <mat-form-field>
+      <mat-select class="form-control" placeholder="Type" matInput name="type" id="type" formControlName="type">
+        <mat-option *ngFor="let type of types" [value]="type.type">{{type.label}}</mat-option>
+      </mat-select>
+      </mat-form-field>
     </div>
-    
+  </div>
+  <button mat-raised-button color="primary" id="remove" type="button" (click)="removeFields(index)">Remove</button>
+  </div>
+  </div>
+  <button mat-raised-button color="primary" id="add" type="button" (click)="addFields()">Add</button>
+   
+    <button mat-raised-button color="primary" id="save" type="submit" (click)="onClick()">Preview</button>
   </form>
-  <button mat-raised-button color="primary" id="save" type="button" 
-  (click)="onClick()">
+  
